@@ -57,9 +57,6 @@ services:
     - -c # this is to evaluate the $REDIS_PASSWORD from the env
     - redis-server --requirepass $$REDIS_PASSWORD ## $$ because of docker-compose
     env_file: env/redis-cache.env
-  netbox:
-    ports:
-    - 443:8080
 
 volumes:
   netbox-media-files:
