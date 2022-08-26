@@ -9,8 +9,6 @@ services:
     - netbox-worker
     env_file: env/netbox.env
     user: 'unit:root'
-    ports:
-    - 443:8080
     volumes:
     - ./startup_scripts:/opt/netbox/startup_scripts:z,ro
     - ./initializers:/opt/netbox/initializers:z,ro
@@ -59,6 +57,9 @@ services:
     - -c # this is to evaluate the $REDIS_PASSWORD from the env
     - redis-server --requirepass $$REDIS_PASSWORD ## $$ because of docker-compose
     env_file: env/redis-cache.env
+  netbox:
+    ports:
+    - 443:8080
 
 volumes:
   netbox-media-files:
