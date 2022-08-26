@@ -1,5 +1,5 @@
 version: '3.4'
 services:
-  nginx:
+  netbox:
     ports:
     - 443:8080
